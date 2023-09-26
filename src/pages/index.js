@@ -26,6 +26,6 @@ export default function Home({ repo }) {
 
 export const getServerSideProps = async ({ req, params, res }) => {
   const _res = await fetch("https://api.github.com/repos/vercel/next.js");
-  const repo = _res.data;
+  const repo = await _res.json();
   return { props: { repo } };
 };
